@@ -59,3 +59,43 @@
    text-transform: uppercase;
    display: flex;
 }
+
+.infinite-words ul{
+    animation: infiniteWord 8s ease infinite;
+}
+
+@keyframes infiniteWord {
+	from {
+		transform: translate(0, 0);
+	}
+	10% {
+		transform: translate(0, 0);
+	}
+	20% {
+		transform: translate(0, -57px);
+	}
+	30% {
+		transform: translate(0, -57px);
+	}
+	40% {
+		transform: translate(0, -114px);
+	}
+	50% {
+		transform: translate(0, -114px);
+	}
+	60% {
+		transform: translate(0, -171px);
+	}
+	70% {
+		transform: translate(0, -171px);
+	}
+	80% {
+		transform: translate(0, -228px);
+	}
+	90% {
+		transform: translate(0, -228px);
+	}
+	to {
+		transform: translate(0, -285px);
+	}
+}
