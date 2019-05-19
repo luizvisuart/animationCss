@@ -1,0 +1,61 @@
+/* Retiramos o margin e padding do browser para evitar margens entre as bordas e o conteúdo; */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Para que a div englobe todo o conteúdo e tenha a largura e altura de 100% do browser, a propriedade width recebeu o valor de 100vw e height de 100vh; */
+.background {
+    width: 100vw;
+    height: 100vh;
+    /* Modificamos a cor do plano de fundo da div que engloba o conteúdo; */
+    background-color: #ffb74e;
+    /* Utilizamos o flexbox para centralizar a <div> filha que contém os três conteúdos que serão animados. */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.infinite-words,
+.hover-words {
+    /* Definimos um tamanho para a <div> igual ao tamanho da fonte (50px); */
+    height: 50px;
+    /* Aplicamos a fonte importada do Google Fonts; */
+    font-family: 'Lilita One', cursive;
+    /* Definimos o tamanho da fonte que, como dito acima, é igual à altura da <div>; */
+    font-size: 50px;
+    /* Alteramos o texto da div para maiúsculo; */
+    text-transform: uppercase;
+    /* Precisamos colocar o “display:flex” para alinhar as tags <p> e <ul> uma ao lado da outra; */
+    display: flex;
+    /* O “overflow: hidden” esconde as palavras que não devem ficar inicialmente visíveis. */
+    overflow: hidden;
+}
+
+.infinite-words p,
+.hover-words p,
+.click-words p {
+     /* Colocamos uma cor nas palavras estáticas e uma margem à direita para separar o <p> (palavras estáticas) da <ul> (palavras animadas); */
+    color: #fff;
+    margin-right: 15px;
+}
+.infinite-words ul li,
+.hover-words ul li,
+.click-words ul li {
+     /* Retiramos os bullets (o separador de tópicos) que a <ul> aplica em cada <li> e colocamos uma cor diferente na palavras que estão dentro do conteúdo animado. Neste bloco também aplicamos a mesma cor no terceiro efeito. */
+    list-style-type: none;
+    color: #733e31;
+}
+
+.hover-words {
+    /* Separamos os blocos de animação com uma margem de 80px para melhorar a visualização; */
+   margin: 80px 0;
+}
+.click-words {
+    /* Formatamos o texto e display da última div. Aqui é importante observar que ela não possui o “overflow: hidden”, pois o texto que será animado não deve ser escondido. */
+   font-family: 'Lilita One', cursive;
+   font-size: 50px;
+   text-transform: uppercase;
+   display: flex;
+}
