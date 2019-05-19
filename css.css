@@ -61,20 +61,24 @@
 }
 
 .infinite-words ul{
+    /* Na propriedade animation informamos o nome do keyframes que vamos definir mais adiante, o tempo total da animação (8 segundos), o efeito (esse indica que a animação começará lenta, no meio ela ficará rápida e no final voltará a ser lenta) e, por fim, que essa animação será executada infinitamente. */
     animation: infiniteWord 8s ease infinite;
 }
 
 @keyframes infiniteWord {
+    /* O “to” e o “from” equivalem, respectivamente a 0% e 100%, ou seja, os pontos inicial e final da animação; */
 	from {
 		transform: translate(0, 0);
 	}
 	10% {
 		transform: translate(0, 0);
-	}
+    }
+    /* Note que nessas linhas o translate tem o mesmo valor, ou seja, as palavras permanecem estáticas. Isso se repete em vários pontos da animação para que, após o "rodar" das palavras uma vez, elas permaneçam paradas por determinado tempo antes de rodarem novamente; */
 	20% {
 		transform: translate(0, -57px);
 	}
 	30% {
+        /* Por meio do efeito translate deslocamos os itens da lista para cima em 57px (o número negativo indica o deslocamento para cima, enquanto os 57px referem-se aos 50px da fonte adicionados a 7px que são próprios da fonte que estamos utilizando. Ela possui esse espaço adicional). Esse deslocamento é repetido em várias partes da animação até chegar em 100%. */
 		transform: translate(0, -57px);
 	}
 	40% {
@@ -99,3 +103,59 @@
 		transform: translate(0, -285px);
 	}
 }
+
+.hover-words ul {
+    /* A animação começa sem palavra nenhuma visível, então usamos o “translate” com um número positivo, deslocando a <ul> inicialmente para baixo (fora da área visível). Como a div hover-words possui “overflow: hidden”, todo conteúdo fora de sua área original será ocultado; */
+	transform: translate(0, 57px);
+}
+.hover-words:hover ul {
+    /* A animação desta vez ocorre ao passarmos o mouse sobre a div hover-words, para isso usamos a pseudo-classe :hover. Então informamos o nome do keyframes, o tempo total da animação (1 segundo), o efeito (ease) e o número de vezes que a animação se repetirá (1 vez apenas). */
+	animation: hoverWord 1s ease 1;
+}
+
+@keyframes hoverWord {
+	from {
+        /* Começamos o “translate” com 57px na vertical, mantendo a <ul> em sua posição original (escondida); */
+		transform: translate(0, 57px);
+	}
+	35% {
+        /* Deslocamos a <ul> para cima (posição 0,0), fazendo com que ela apareça na área visível da div hover-words; */
+		transform: translate(0, 0px);
+	}
+	70% {
+        /* Mantemos a <ul> em sua posição atual e indicamos que sua opacidade deve ser de 100%, mantendo-a visível nesse momento da animação; */
+		transform: translate(0, 0px);
+		opacity: 1;
+	}
+	to {
+        /* Deslocamos a <ul> para a direita (200px positivos) e alteramos sua opacidade para 0%. Assim ela desaparece à medida que é deslocada. */
+		transform: translate(200px, 0px);
+		opacity: 0;
+	}
+}
+
+
+
+.click-words.active-animation ul li {
+    /* Informamos novamente o nome do keyframes, o tempo da animação (0,5 segundo), o efeito (ease), o número de vezes que ela se repetirá (1). Além desses informamos o último argumento (fowards), indicando que após ocorrer toda a animação a div deve manter seu último estado, ou seja, não deve reiniciar. */
+	animation: clickWord .5s ease 1 forwards;
+}
+
+@keyframes clickWord {
+	from {
+         /* Inicialmente mantemos as dimensões do <li> como as originais (1x é o tamanho original); */
+		transform: scale(1);
+	}
+	50% {
+        /* Expandimos o tamanho do <li> para 2x o seu tamanho original e definimos sua opacidade como 100% (totalmente visível); */
+		transform: scale(2);
+		opacity: 1;
+	}
+	to {
+        /* Novamente expandimos um pouco mais o elemento (2,2x do tamanho original) e alteramos sua opacidade para 0, fazendo com que o <li> desapareça à medida que é expandido. */
+		transform: scale(2.5);
+		opacity: 0;
+	}
+}
+
+

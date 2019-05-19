@@ -38,6 +38,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        //  Capturamos o primeiro elemento que possua a classe "click-words" e tratamos seu evento "click";
+        document.getElementsByClassName("click-words")[0].addEventListener("click", function () {
+            //  Lemos o valor atual do atributo "class" dessa div e adicionamos a ele a classe "active-animation";
+            var classe = this.getAttribute("class") + " active-animation";
+            // Redefinimos o valor do atributo "class" da div, que agora possuirá também a classe "active-animation".Essa adição de classe fará com que a animação definida no CSS seja disparada;
+            this.setAttribute("class", classe);
+        })
+    </script>
 </body>
 
 </html>
